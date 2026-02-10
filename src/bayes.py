@@ -1,16 +1,23 @@
-import typing
+import numpy as np
 
 
-def uniform_distribution_probability(value: float, left_border: float, right_border: float) -> float:
-    if left_border >= right_border:
-        raise ValueError('Левый край должен быть строго меньше правого!')
-
-    if left_border <= value <= right_border:
-        return 1.0 / (right_border - left_border)
-    else:
-        return 0.0
+from typing import Iterable
+from scipy.stats import rv_continuous
+from structure_types import StateOfSystem
 
 
-class PriorDistribution(typing.Protocol):
-    def pdf(self, *args, **kwargs) -> float:
+class StatePriorProbability:
+    state_variables_prior_probabilities: Iterable[rv_continuous]
+
+    def __init__(self, state_variables_prior_probabilities: Iterable[rv_continuous]) -> None:
+        self.state_variables_prior_probabilities = state_variables_prior_probabilities
+
+    def calculate_prior_likelihood(self, state_of_system: StateOfSystem) -> np.float64:
         ...
+
+    def calculate_prior_log_likelihood(self, state_of_system: StateOfSystem) -> np.float64:
+        ...
+
+
+if __name__ == '__main__':
+    pass

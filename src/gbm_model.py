@@ -1,10 +1,8 @@
-import numpy as np
-
-
 from structure_types import StateOfSystem
 
 
-class StateGBM(StateOfSystem):
-    def __init__(self, mu: float, sigma: float) -> None:
-        self.state_variables = np.array([mu, sigma])
-        self.covariance_matrix = np.eye(2)
+class StateGBM:
+    state_of_system: StateOfSystem
+
+    def __init__(self, state_of_system: StateOfSystem) -> None:
+        self.state_of_system = state_of_system
