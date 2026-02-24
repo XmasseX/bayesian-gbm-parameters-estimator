@@ -1,0 +1,23 @@
+-e git+ssh://git@github.com/XmasseX/bayesian-gbm-parameters-estimator.git@f67c50fdb58cb3e98d3adfc324d6643c78cb70f1#egg=bayesian_gbm_parameters_estimator
+contourpy==1.3.3
+cycler==0.12.1
+flake8==7.3.0
+fonttools==4.61.1
+kiwisolver==1.4.9
+librt==0.7.8
+matplotlib==3.10.8
+mccabe==0.7.0
+mypy==1.19.1
+mypy_extensions==1.1.0
+numpy==2.4.2
+packaging==26.0
+pathspec==1.0.4
+pillow==12.1.1
+pycodestyle==2.14.0
+pyflakes==3.4.0
+pyparsing==3.3.2
+python-dateutil==2.9.0.post0
+scipy==1.17.0
+setuptools==82.0.0
+six==1.17.0
+typing_extensions==4.15.0
