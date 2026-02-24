@@ -15,7 +15,7 @@ def common_likelihood(state: StateOfSystem) -> float:
     sample = np.random.normal(loc=5, scale=2.0, size=10)
 
     for el in sample:
-        likelihood += - 1 / 2 / sigma ** 2 * (el - mu) ** 2 - np.log(np.sqrt(2 * np.pi) * sigma)
+        likelihood += - 1 / 2 / sigma ** 2 * (el - mu) ** 2 - np.log(np.sqrt(2 * np.pi) * sigma) - np.log(np.sqrt(2 * np.pi) * 10) - 1 / 2 / 10 ** 2 * (mu - 0) ** 2 - np.log(np.sqrt(2 * np.pi) * 5) - 1 / 2 / 5 ** 2 * (sigma - 0) ** 2
 
     return likelihood
 
@@ -25,7 +25,7 @@ if __name__ == '__main__':
 
     initial_state = StateOfSystem(
         state_variables=np.asarray(np.zeros(2), dtype=np.float64),
-        covariance_matrix=np.asarray(np.diag([0.1, 0.1]), dtype=np.float64)
+        covariance_matrix=np.asarray(np.diag([0.05, 0.05]), dtype=np.float64)
     )
     print(f'state: {initial_state.state_variables.shape}')
     print(f'state: {initial_state.covariance_matrix.shape}')
